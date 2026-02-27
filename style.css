@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #0D3A56;
+}
+
+header {
+    width: 100%;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.logo {
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #246998;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #0D3A56;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 2000;
+}
+
+.mobile-menu a {
+    margin: 10px 0;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    margin: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: #0D3A56;
+    color: white;
+}
+
+.btn-secondary {
+    background: #246998;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    max-width: 500px;
+    width: 100%;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1e293b;
+    position: relative;
+}
+
+.card-title::after {
+    content: "";
+    width: 50px;
+    height: 3px;
+    background: #246998;
+    display: block;
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 10px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    transition: 0.2s ease;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.card-list li:hover {
+    background: #f1f7fb;
+    color: #246998;
+    transform: translateX(4px);
+}
+
+.card-list ion-icon {
+    font-size: 20px;
+    color: #246998;
+    min-width: 20px;
+}
+
+.video-banner {
+    margin-top: 60px;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 400px;
+    background: #e6f1f7;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #246998;
+    font-size: 20px;
+}
+
+/* Ajuste do Container do Slider */
+.slider {
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden; /* Mantém as imagens dentro do trilho */
+    opacity: 1;       /* Remova a classe 'hidden' do HTML ou garanta que ela suma via JS */
+    transform: none;
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* O trilho que move as imagens */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+/* Cada slide individual */
+.slide {
+    min-width: 100%;
+    height: 450px; /* Altura fixa para manter o padrão */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* A IMAGEM - Onde estava o bug do vazamento */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem cobrir o espaço sem sobrar */
+}
+
+/* Botões do Slider */
+.slider-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 10; /* Garante que fiquem visíveis */
+}
+
+footer {
+    background: #0D3A56;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 5%;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .mobile-menu {
+        right: 5%;
+        width: 200px;
+    }
+}
+
+/* Configuração para Computador (aparece normalmente) */
+.video-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 10%;
+    box-sizing: border-box;
+}
+
+.video-placeholder video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    object-fit: contain;
+}
+
+/* Responsividade: Sumir no Mobile */
+@media (max-width: 768px) {
+    .video-banner {
+        display: none; /* Isso remove o container e o vídeo completamente da visão */
+    }
+}
+
+/* Mantém proporção 16:9 automaticamente */
+.video-placeholder::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* 16:9 */
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .video-banner {
+        padding: 20px 15px;
+    }
+
+    .video-placeholder {
+        border-radius: 14px;
+    }
+}
+
+/* Responsividade para Celulares (Telas até 768px) */
+@media (max-width: 768px) {
+    .slider {
+        margin-top: 30px; /* Reduz a margem superior no mobile */
+        width: 100%;
+    }
+
+    .slide {
+        /* Em vez de altura fixa, usamos proporção 4:3 para mobile */
+        height: auto; 
+        aspect-ratio: 4 / 3; 
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Garante que a foto preencha o espaço sem sobrar */
+    }
+
+    .slider-buttons {
+        display: flex;
+        justify-content: space-around; /* Espaça melhor os botões no toque */
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .btn {
+        padding: 10px 15px; /* Botões um pouco menores para caber lado a lado */
+        font-size: 14px;
+        flex: 1; /* Faz os botões dividirem o espaço igualmente */
+        justify-content: center;
+    }
+}
+
+/* Para celulares muito pequenos (iPhone SE, etc - até 380px) */
+@media (max-width: 380px) {
+    .slide {
+        aspect-ratio: 1 / 1; /* Vira um quadrado para aproveitar melhor a tela */
+    }
+    
+    .btn {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+.instagram {
+    background: #E1306C;
+}
+
+.whatsapp {
+    background: #25D366;
+}
+
+.content {
+    padding: 25px 10%;
+    text-align: center;
+}
