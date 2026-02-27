@@ -373,3 +373,29 @@ footer {
     padding: 25px 10%;
     text-align: center;
 }
+
+/* Configuração padrão para a seção de contato */
+#contato {
+    display: flex;
+    flex-direction: column; /* Organiza em coluna por padrão */
+    align-items: center;    /* Centraliza os botões */
+    gap: 15px;              /* Espaçamento entre os botões */
+}
+
+/* No computador, se você quiser que eles fiquem lado a lado */
+@media (min-width: 769px) {
+    #contato {
+        flex-direction: row; /* Volta para linha em telas grandes */
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+/* No celular (Garante que ocupem bem o espaço) */
+@media (max-width: 768px) {
+    #contato .btn {
+        width: 100%;       /* Faz o botão ocupar a largura disponível */
+        max-width: 300px;  /* Mas limita para não ficar exagerado em telas médias */
+        justify-content: center; /* Centraliza o ícone e texto dentro do botão */
+    }
+}
